@@ -1,0 +1,28 @@
+<div>
+    <input type="text" id="searchbox">
+    <button (click)="searchCharacter()">Search <span class="material-symbols-rounded">search</span></button>
+</div>
+
+<h1>Characters list</h1>
+
+<div *ngFor="let el of charList" class="char-container">
+    <img [src]="el.image" class="char-img">
+    <h2>{{ el.name }}</h2>
+    <span class="material-symbols-rounded" (click)="openDetails()" title="Open details">
+        manage_search
+    </span>
+    <span class="material-symbols-rounded" (click)="openDetails()" title="Add to favourites">
+        star
+    </span>
+</div>
+
+<!-- pagination -->
+<div class="pagination-container">
+    <span class="material-symbols-rounded" (click)="previousPage()" title="Previous page">
+        arrow_back
+    </span>
+    {{ page }}
+    <span class="material-symbols-rounded" (click)="nextPage()" title="Next page">
+        arrow_forward
+    </span>
+</div>
