@@ -1,4 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --theme-color-text : #00b5cc;
+    --theme-color-border : #00353e;
+    --theme-color-shadow : #b2df28;
+}
 
 html {
     font-family: 'Roboto', sans-serif;
@@ -7,5 +11,17 @@ html {
 }
 
 .material-symbols-rounded {
+    cursor: pointer;
+}
+
+button {
+    font-family: 'Roboto', sans-serif;
+    
+    // line-height: 40px;
+    // box-sizing: border-box;
+    // height: 40px;
+}
+
+.pointer {
     cursor: pointer;
 }

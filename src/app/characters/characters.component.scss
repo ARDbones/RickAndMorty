@@ -1,9 +1,9 @@
 .char-img {
     margin: 0 1rem;
-    height: 120px;
+    height: 110px;
     border-radius: 50%;
-    border: 4px solid rgb(18, 171, 140);
-    box-shadow: 0 0 10px 5px greenyellow;
+    border: 4px solid var(--theme-color-border);
+    box-shadow: 0 0 10px 5px var(--theme-color-shadow);
 }
 
 .char-container {
@@ -11,12 +11,26 @@
     align-items: center;
     padding: 1rem;
 
+    border-bottom: 1px solid white;
+
     span {
         margin: 0 1rem;
+    }
+
+    .img-container {
+        width: 20%;
+    }
+    .name-container {
+        width: 60%;
+    }
+    .icons-container {
+        width: 20%;
+        text-align: end;
     }
 }
 
 .pagination-container {
+    margin : 2rem auto;
     display: flex;
     align-items: center;
     justify-content: center;

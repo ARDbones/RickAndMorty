@@ -6,14 +6,20 @@
 <h1>Characters list</h1>
 
 <div *ngFor="let el of charList" class="char-container">
-    <img [src]="el.image" class="char-img">
-    <h2>{{ el.name }}</h2>
-    <span class="material-symbols-rounded" (click)="openDetails()" title="Open details">
-        manage_search
-    </span>
-    <span class="material-symbols-rounded" (click)="openDetails()" title="Add to favourites">
-        star
-    </span>
+    <div class="img-container">
+        <img [src]="el.image" class="char-img">
+    </div>
+    <div class="name-container">
+        <h2 class="pointer" (click)="openDetails()">{{ el.name }}</h2>
+    </div>
+    <div class="icons-container">
+        <span class="material-symbols-rounded" (click)="openDetails()" title="Open details">
+            manage_search
+        </span>
+        <span class="material-symbols-rounded" (click)="openDetails()" title="Add to favourites">
+            star
+        </span>
+    </div>
 </div>
 
 <!-- pagination -->
