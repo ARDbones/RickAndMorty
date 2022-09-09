@@ -1,6 +1,6 @@
-<div>
-    <input type="text" id="searchbox">
-    <button (click)="searchCharacter()">Search <span class="material-symbols-rounded">search</span></button>
+<div class="search-container">
+    <input type="text" id="searchbox" placeholder="Search by name" [(ngModel)]="nameSearched">
+    <button (click)="searchCharacter()">Search</button>
 </div>
 
 <h1>Characters list</h1>
@@ -10,13 +10,13 @@
         <img [src]="el.image" class="char-img">
     </div>
     <div class="name-container">
-        <h2 class="pointer" (click)="openDetails()">{{ el.name }}</h2>
+        <h2 class="pointer" (click)="openDetails(el.id)">{{ el.name }}</h2>
     </div>
     <div class="icons-container">
-        <span class="material-symbols-rounded" (click)="openDetails()" title="Open details">
+        <span class="material-symbols-rounded" (click)="openDetails(el.id)" title="Open details">
             manage_search
         </span>
-        <span class="material-symbols-rounded" (click)="openDetails()" title="Add to favourites">
+        <span class="material-symbols-rounded" (click)="openDetails(el.id)" title="Add to favourites">
             star
         </span>
     </div>
@@ -24,11 +24,19 @@
 
 <!-- pagination -->
 <div class="pagination-container">
-    <span class="material-symbols-rounded" (click)="previousPage()" title="Previous page">
-        arrow_back
-    </span>
-    {{ page }}
-    <span class="material-symbols-rounded" (click)="nextPage()" title="Next page">
-        arrow_forward
-    </span>
+    <div class="arrow-container">
+        <span *ngIf="page != 1" class="material-symbols-rounded" (click)="previousPage()" title="Previous page">
+            arrow_back
+        </span>
+    </div>
+    <div>
+        <span>{{ page }} of {{ maxPages }}</span>
+    </div>
+    <div class="arrow-container">
+        <span *ngIf="page != maxPages" class="material-symbols-rounded" (click)="nextPage()" title="Next page">
+            arrow_forward
+        </span>
+    </div>
 </div>
+
+<detail-modal [charId]="selectedId"></detail-modal>

@@ -6,10 +6,14 @@
     box-shadow: 0 0 10px 5px var(--theme-color-shadow);
 }
 
+.search-container {
+    text-align: center;
+}
+
 .char-container {
     display: flex;
     align-items: center;
-    padding: 1rem;
+    padding: 2rem 1rem;
 
     border-bottom: 1px solid white;
 
@@ -36,6 +40,12 @@
     justify-content: center;
 
     span {
-        margin: 0 1.5rem;
+        margin: 0 0.9rem;
+    }
+
+    .arrow-container {
+        display: flex;
+        align-items: center;
+        width: calc(24px + 1.8rem);
     }
 }

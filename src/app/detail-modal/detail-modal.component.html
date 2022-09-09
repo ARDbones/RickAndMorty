@@ -1,0 +1,13 @@
+<div id="detail-modal" class="modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-container">
+    <h1> {{ character.name }} </h1>
+    <button class="modal-close" (click)="close()">&#10005;</button>
+    <p>Status: {{ character.status }}</p>
+    <p>Species: {{ character.species || 'N/A' }}</p>
+    <p>Type: {{ character.type || 'N/A'}}</p>
+    <p>Gender: {{ character.gender || 'N/A' }}</p>
+    <p>Origin: {{ character?.origin.name || 'N/A' }}</p>
+    <p>Location: {{ character?.location.name || 'N/A' }}</p>
+  </div>
+</div>
