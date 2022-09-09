@@ -5,8 +5,8 @@ export interface Character {
     species : string; // The species of the character.
     type : string; // The type or subspecies of the character.
     gender : string; //	The gender of the character ('Female', 'Male', 'Genderless' or 'unknown').
-    origin : object; //	Name and link to the character's origin location.
-    location : object; // Name and link to the character's last known location endpoint.
+    origin : { name : string, url: string }; //	Name and link to the character's origin location.
+    location : { name : string, url: string }; // Name and link to the character's last known location endpoint.
     image : string; // (url) Link to the character's image. All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.
     episode : string[]; // (urls) List of episodes in which this character appeared.
     url : string; // (url) Link to the character's own URL endpoint.

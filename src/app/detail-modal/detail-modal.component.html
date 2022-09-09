@@ -7,7 +7,19 @@
     <p>Species: {{ character.species || 'N/A' }}</p>
     <p>Type: {{ character.type || 'N/A'}}</p>
     <p>Gender: {{ character.gender || 'N/A' }}</p>
-    <p>Origin: {{ character?.origin.name || 'N/A' }}</p>
-    <p>Location: {{ character?.location.name || 'N/A' }}</p>
+    <p>Origin: {{ character.origin.name || 'N/A' }}</p>
+    <p>Location: {{ character.location.name || 'N/A' }}</p>
+
+    <h2>Episodes</h2>
+    <table>
+      <tr *ngFor="let el of episodesList">
+        <td>
+          {{ el.episode }}
+        </td>
+        <td>
+          {{ el.name }}
+        </td>
+      </tr>
+    </table>
   </div>
 </div>

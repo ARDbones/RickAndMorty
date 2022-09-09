@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Character } from '../models/character.model';
 import { catchError, retry, throwError } from 'rxjs';
-import { Episode } from '../models/episode.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +10,7 @@ import { Episode } from '../models/episode.model';
 export class CharactersService {
   
   private baseUrl : string = 'https://rickandmortyapi.com/api/character';
+  private graphqlUrl : string = 'https://rickandmortyapi.com/graphql';
 
   constructor(private http: HttpClient) {  }
 
@@ -21,7 +21,7 @@ export class CharactersService {
       );
   }
 
-  searchCharacterByName(name : string){
+  searchCharacterByName(name : string) {
     return this.http.get<any>(this.baseUrl + '/?name=' + name)
       .pipe(
         catchError(this.handleError)
@@ -36,9 +36,8 @@ export class CharactersService {
       );
   }
 
-  // Location del metodo temporanea
-  getEpisodesById(ids : any) { // sistemare il tipo
-    return this.http.get<Episode[]>(this.baseUrl + '/' + ids)
+  getCharacterEpisodesName(id : number) {
+    return this.http.post<any>(this.graphqlUrl, { query : 'query { character(id: ' + id + ') { episode { name episode } }}'})
       .pipe(
         catchError(this.handleError)
       );

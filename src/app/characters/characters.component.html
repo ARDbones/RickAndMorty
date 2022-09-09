@@ -16,7 +16,10 @@
         <span class="material-symbols-rounded" (click)="openDetails(el.id)" title="Open details">
             manage_search
         </span>
-        <span class="material-symbols-rounded" (click)="openDetails(el.id)" title="Add to favourites">
+        <span *ngIf="!isFavourite(el.id)" class="material-symbols-rounded" (click)="addToFavourites(el.id)" title="Add to favourites">
+            star
+        </span>
+        <span *ngIf="isFavourite(el.id)" class="material-symbols-rounded favourite-star" (click)="removeFromFavourites(el.id)" title="Remove from favourites">
             star
         </span>
     </div>
