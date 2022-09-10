@@ -57,8 +57,7 @@ export class CharactersComponent implements OnInit {
   }
 
   openDetails(id : number) : void {
-    this.selectedId = id;
-    this.modalService.openModal('detail-modal');
+    this.modalService.setCharacterId(id);
   }
 
   addToFavorites(id : number) : void {

@@ -57,6 +57,22 @@
     padding: 20px 30px;
     background-color: rgb(5, 7, 22);
     border-radius: 20px;
-    text-align: center;
+  }
+}
+
+.pagination-container {
+  margin : 1.5rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+      margin: 0 0.9rem;
+  }
+
+  .arrow-container {
+      display: flex;
+      align-items: center;
+      width: calc(24px + 1.8rem);
   }
 }

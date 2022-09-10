@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Character } from '../shared/models/character.model';
 import { CharactersService } from '../shared/services/characters.service';
 import { FavoritesService } from '../shared/services/favorites.service';
+import { ModalService } from '../shared/services/modal.service';
 
 @Component({
   selector: 'app-favorites',
@@ -16,7 +17,7 @@ export class FavoritesComponent implements OnInit {
   maxPages : number = 1;
   resultsPerPage : number = 20;
 
-  constructor(private charService : CharactersService, private favService : FavoritesService) { }
+  constructor(private charService : CharactersService, private favService : FavoritesService, private modalService : ModalService) { }
 
   ngOnInit(): void {
     this.favService.getFavoritesState().subscribe(favs =>{
@@ -38,8 +39,7 @@ export class FavoritesComponent implements OnInit {
   }
 
   openDetails(id : number) : void {
-    // this.selectedId = id;
-    // this.modalService.openModal('detail-modal');
+    this.modalService.setCharacterId(id);
   }
 
   previousPage() : void {

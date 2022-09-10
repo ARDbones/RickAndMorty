@@ -15,12 +15,6 @@
             <span class="material-symbols-rounded" (click)="openDetails(el.id)" title="Open details">
                 manage_search
             </span>
-            <!-- <span *ngIf="!isFavorite(el.id)" class="material-symbols-rounded" (click)="addToFavorites(el.id)" title="Add to favorites">
-                star
-            </span>
-            <span *ngIf="isFavorite(el.id)" class="material-symbols-rounded favorite-star" (click)="removeFromFavorites(el.id)" title="Remove from favorites">
-                star
-            </span> -->
         </div>
     </div>
     
@@ -45,3 +39,5 @@
         No favorites yet.
     </p>
 </ng-container>
+
+<detail-modal></detail-modal>

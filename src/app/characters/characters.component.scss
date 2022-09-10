@@ -1,11 +1,3 @@
-.char-img {
-    margin: 0 1rem;
-    height: 110px;
-    border-radius: 50%;
-    border: 4px solid var(--theme-color-border);
-    box-shadow: 0 0 10px 5px var(--theme-color-shadow);
-}
-
 .search-container {
     text-align: center;
 }
@@ -19,7 +11,7 @@
 .char-container {
     display: flex;
     align-items: center;
-    padding: 2rem 1rem;
+    padding: 1rem 0rem;
 
     border-bottom: 1px solid white;
 
@@ -28,10 +20,18 @@
     }
 
     .img-container {
-        width: 20%;
+        width: 25%;
+
+        .char-img {
+            margin: 0 0.5rem;
+            height: 50px;
+            border-radius: 50%;
+            border: 3px solid var(--theme-color-border);
+            box-shadow: 0 0 10px 5px var(--theme-color-shadow);
+        }
     }
     .name-container {
-        width: 60%;
+        width: 55%;
     }
     .icons-container {
         width: 20%;
@@ -58,4 +58,90 @@
 
 .favorite-star {
     color : var(--theme-color-shadow);
+}
+
+
+@media only screen and (min-width: 375px) {
+    .char-container {
+        padding: 1rem 0rem;
+
+        span {
+            margin: 0 0.5rem;
+        }
+    
+        .img-container {
+            width: 30%;
+    
+            .char-img {
+                height: 60px;
+            }
+        }
+        .name-container {
+            width: 55%;
+        }
+        .icons-container {
+            width: 15%;
+            text-align: end;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .char-container {
+        padding: 1rem 1rem;
+    
+        .img-container {
+            width: 20%;
+    
+            .char-img {
+                height: 80px;
+                border: 4px solid var(--theme-color-border);
+            }
+        }
+        .name-container {
+            width: 65%;
+        }
+        .icons-container {
+            width: 15%;
+            text-align: end;
+        }
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .char-container {
+        padding: 1.5rem 1rem;
+
+        span {
+            margin: 0 1rem;
+        }
+    
+        .img-container {
+            width: 20%;
+    
+            .char-img {
+                height: 95px;
+            }
+        }
+        .name-container {
+            width: 60%;
+        }
+        .icons-container {
+            width: 20%;
+            text-align: end;
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .char-container {
+        padding: 2rem 1rem;
+    
+        .img-container {
+            .char-img {
+                margin: 0 1rem;
+                height: 110px;
+            }
+        }
+    }
 }
