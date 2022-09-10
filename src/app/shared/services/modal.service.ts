@@ -5,7 +5,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ModalService {
-  private modalSubject = new Subject<number>();
+  private modalSubject : Subject<number> = new Subject<number>();
 
   constructor() { }
 
@@ -18,12 +18,12 @@ export class ModalService {
   }
 
   openModal(id : string) : void {
-    let modal = document.getElementById(id);
+    let modal : HTMLElement | null = document.getElementById(id);
     modal?.classList.add('open');
   }
 
   closeModal(id : string) : void {
-    let modal = document.getElementById(id);
+    let modal : HTMLElement | null = document.getElementById(id);
     modal?.classList.remove('open');
   }
 }

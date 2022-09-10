@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritesService {
   favoritesIdList : number[] = [];
-  private favSubject = new BehaviorSubject<any>([]);
+  private favSubject : BehaviorSubject<number[]> = new BehaviorSubject<number[]>([]);
 
   constructor() {}
 
-  public getFavoritesState() {
+  public getFavoritesState() : Observable<number[]>{
     return this.favSubject.asObservable();
   }
 
-  addFavorite(id : number){
+  addFavorite(id : number) : void {
     this.favoritesIdList.push(id)
     this.favSubject.next(this.favoritesIdList);
   }
 
-  removeFavorite(id : number){
+  removeFavorite(id : number) : void {
     const index = this.favoritesIdList.indexOf(id);
     this.favoritesIdList.splice(index,1);
     this.favSubject.next(this.favoritesIdList);

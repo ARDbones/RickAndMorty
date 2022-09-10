@@ -9,7 +9,7 @@ import { ModalService } from '../shared/services/modal.service';
   styleUrls: ['./detail-modal.component.scss']
 })
 export class DetailModalComponent implements OnInit {
-  @Input() charId = 1;
+  @Input() charId : number = 1;
   character : Character = {
     id : this.charId,
     name : 'loading',
@@ -48,7 +48,7 @@ export class DetailModalComponent implements OnInit {
         } else {
           this.episodesList = this.fullEpisodesList.slice(0, this.resultsPerPage); // pagina piena
         }
-
+        
         this.modalService.openModal('detail-modal');
       });
     })
