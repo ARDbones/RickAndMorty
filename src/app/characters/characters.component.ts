@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from '../shared/models/character.model';
 import { CharactersService } from '../shared/services/characters.service';
-import { FavouritesService } from '../shared/services/favourites.service';
+import { FavoritesService } from '../shared/services/favorites.service';
 import { ModalService } from '../shared/services/modal.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class CharactersComponent implements OnInit {
   nextPageUrl : string = '';
   favList : number[] = [];
 
-  constructor(private pageService : CharactersService, private modalService : ModalService, private favService : FavouritesService) { }
+  constructor(private pageService : CharactersService, private modalService : ModalService, private favService : FavoritesService) { }
   
   ngOnInit(): void {
     this.pageService.getCharacters().subscribe(response =>  {
@@ -29,7 +29,7 @@ export class CharactersComponent implements OnInit {
       this.charList = response.results;
     });
 
-    this.favService.getFavouritesState().subscribe(favs =>{
+    this.favService.getFavoritesState().subscribe(favs =>{
       this.favList = favs;
     })
   }
@@ -61,22 +61,22 @@ export class CharactersComponent implements OnInit {
     this.modalService.openModal('detail-modal');
   }
 
-  addToFavourites(id : number) : void {
-    this.favService.addFavourite(id);
+  addToFavorites(id : number) : void {
+    this.favService.addFavorite(id);
   }
 
-  removeFromFavourites(id : number) : void {
-    this.favService.removeFavourite(id);
+  removeFromFavorites(id : number) : void {
+    this.favService.removeFavorite(id);
   }
 
-  isFavourite(id : number) : boolean {
+  isFavorite(id : number) : boolean {
     if(this.favList.find(el => el == id)) return true
     else return false;
   }
 
   searchCharacter() : void {
     if(this.nameSearched){
-      this.pageService.searchCharacterByName(this.nameSearched).subscribe(response =>  {
+      this.pageService.getCharacterByName(this.nameSearched).subscribe(response =>  {
         this.charList = response.results;
         this.previousPageUrl = response.info.prev;
         this.nextPageUrl = response.info.next;

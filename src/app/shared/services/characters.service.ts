@@ -9,7 +9,7 @@ import { catchError, retry, throwError } from 'rxjs';
 
 export class CharactersService {
   
-  private baseUrl : string = 'https://rickandmortyapi.com/api/character';
+  private baseUrl : string = 'https://rickandmortyapi.com/api/character/';
   private graphqlUrl : string = 'https://rickandmortyapi.com/graphql';
 
   constructor(private http: HttpClient) {  }
@@ -21,15 +21,22 @@ export class CharactersService {
       );
   }
 
-  searchCharacterByName(name : string) {
-    return this.http.get<any>(this.baseUrl + '/?name=' + name)
+  getCharacterByName(name : string) {
+    return this.http.get<any>(this.baseUrl + '?name=' + name)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  getCharactersById(ids : string) {
+    return this.http.get<any>(this.baseUrl + ids)
       .pipe(
         catchError(this.handleError)
       );
   }
 
   getCharacterDetail(id : number) {
-    return this.http.get<Character>(this.baseUrl + '/' + id)
+    return this.http.get<Character>(this.baseUrl + id)
       .pipe(
         retry(2),
         catchError(this.handleError)

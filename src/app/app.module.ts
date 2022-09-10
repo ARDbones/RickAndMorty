@@ -6,15 +6,17 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharactersComponent } from './characters/characters.component';
-import { HeaderComponent } from './header/header.component';
 import { DetailModalComponent } from './detail-modal/detail-modal.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharactersComponent,
     HeaderComponent,
-    DetailModalComponent
+    DetailModalComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,

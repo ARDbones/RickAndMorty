@@ -3,7 +3,10 @@
     <button (click)="searchCharacter()">Search</button>
 </div>
 
-<h1>Characters list</h1>
+<div class="title-container">
+    <h1>Characters list</h1>
+    <p><a routerLink="/favorites">Go to favorites</a></p>
+</div>
 
 <div *ngFor="let el of charList" class="char-container">
     <div class="img-container">
@@ -16,16 +19,15 @@
         <span class="material-symbols-rounded" (click)="openDetails(el.id)" title="Open details">
             manage_search
         </span>
-        <span *ngIf="!isFavourite(el.id)" class="material-symbols-rounded" (click)="addToFavourites(el.id)" title="Add to favourites">
+        <span *ngIf="!isFavorite(el.id)" class="material-symbols-rounded" (click)="addToFavorites(el.id)" title="Add to favorites">
             star
         </span>
-        <span *ngIf="isFavourite(el.id)" class="material-symbols-rounded favourite-star" (click)="removeFromFavourites(el.id)" title="Remove from favourites">
+        <span *ngIf="isFavorite(el.id)" class="material-symbols-rounded favorite-star" (click)="removeFromFavorites(el.id)" title="Remove from favorites">
             star
         </span>
     </div>
 </div>
 
-<!-- pagination -->
 <div class="pagination-container">
     <div class="arrow-container">
         <span *ngIf="page != 1" class="material-symbols-rounded" (click)="previousPage()" title="Previous page">

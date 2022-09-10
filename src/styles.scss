@@ -31,11 +31,15 @@ button {
     height: 34px;
     border-radius: 10px;
     cursor : pointer;
-    background-color: #00b5cc;
+    background-color: var(--theme-color-text);
     color: white;
     font-weight: 500;
     margin: auto 0.8rem;
     padding: 1px 10px;
+}
+
+a {
+    color : var(--theme-color-text);
 }
 
 .pointer {
