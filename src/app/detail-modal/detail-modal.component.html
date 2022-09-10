@@ -21,5 +21,21 @@
         </td>
       </tr>
     </table>
+
+    <div class="pagination-container" *ngIf="maxPages > 1">
+      <div class="arrow-container">
+          <span *ngIf="page != 1" class="material-symbols-rounded" (click)="previousPage()" title="Previous page">
+              arrow_back
+          </span>
+      </div>
+      <div>
+          <span>{{ page }} of {{ maxPages }}</span>
+      </div>
+      <div class="arrow-container">
+          <span *ngIf="page != maxPages" class="material-symbols-rounded" (click)="nextPage()" title="Next page">
+              arrow_forward
+          </span>
+      </div>
+  </div>
   </div>
 </div>

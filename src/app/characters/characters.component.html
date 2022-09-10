@@ -28,7 +28,7 @@
     </div>
 </div>
 
-<div class="pagination-container">
+<div class="pagination-container" *ngIf="maxPages > 1">
     <div class="arrow-container">
         <span *ngIf="page != 1" class="material-symbols-rounded" (click)="previousPage()" title="Previous page">
             arrow_back

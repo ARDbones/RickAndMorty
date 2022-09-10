@@ -26,6 +26,10 @@ export class DetailModalComponent implements OnChanges {
 
   totEpisodes : number = 0;
   episodesList : { name : string, episode : string }[] = [];
+  fullEpisodesList : { name : string, episode : string }[] = [];
+  page : number = 1;
+  maxPages : number = 1;
+  resultsPerPage : number = 10;
 
   constructor(private characterService : CharactersService) { }
 
@@ -35,7 +39,15 @@ export class DetailModalComponent implements OnChanges {
       this.totEpisodes = this.character.episode.length;
     });
     this.characterService.getCharacterEpisodesName(changes['charId'].currentValue).subscribe(response =>  {
-      this.episodesList = response.data.character.episode;
+      this.fullEpisodesList = response.data.character.episode;
+      this.maxPages = Math.floor(this.fullEpisodesList.length / this.resultsPerPage);
+      if(this.fullEpisodesList.length % this.resultsPerPage != 0) this.maxPages++;
+
+      if(this.page == this.maxPages) {
+        this.episodesList = this.fullEpisodesList.slice(0, this.fullEpisodesList.length); // pagina incompleta o pari alla length
+      } else {
+        this.episodesList = this.fullEpisodesList.slice(0, this.resultsPerPage); // pagina piena
+      }
     });
   }
 
@@ -56,6 +68,20 @@ export class DetailModalComponent implements OnChanges {
       url : '',
       created	: ''
     };
+  }
+
+  previousPage() : void {
+    this.page--;
+    this.episodesList = this.fullEpisodesList.slice(this.resultsPerPage * (this.page - 1), this.resultsPerPage * this.page);
+  }
+
+  nextPage() : void {
+    this.page++;
+    if(this.page == this.maxPages) {
+      this.episodesList = this.fullEpisodesList.slice(this.resultsPerPage * (this.page - 1), this.fullEpisodesList.length); // pagina incompleta o pari alla length
+    } else {
+      this.episodesList = this.fullEpisodesList.slice(this.resultsPerPage * (this.page - 1), this.resultsPerPage * this.page); // pagina piena
+    }
   }
 }
 
