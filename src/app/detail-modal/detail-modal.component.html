@@ -1,8 +1,10 @@
 <div id="detail-modal" class="modal">
   <div class="modal-overlay"></div>
   <div class="modal-container">
-    <h1> {{ character.name }} </h1>
-    <button class="modal-close" (click)="close()">&#10005;</button>
+    <div class="title-container">
+      <h1> {{ character.name }} </h1>
+      <button class="modal-close" (click)="close()">&#10005;</button>
+    </div>
     <p>Status: {{ character.status }}</p>
     <p>Species: {{ character.species || 'N/A' }}</p>
     <p>Type: {{ character.type || 'N/A'}}</p>
@@ -11,16 +13,11 @@
     <p>Location: {{ character.location.name || 'N/A' }}</p>
 
     <h2>Episodes</h2>
-    <table>
-      <tr *ngFor="let el of episodesList">
-        <td>
-          {{ el.episode }}
-        </td>
-        <td>
-          {{ el.name }}
-        </td>
-      </tr>
-    </table>
+    <ul>
+      <li *ngFor="let el of episodesList">
+        {{ el.episode }} - {{ el.name }}
+      </li>
+    </ul>
 
     <div class="pagination-container" *ngIf="maxPages > 1">
       <div class="arrow-container">

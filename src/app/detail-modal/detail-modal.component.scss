@@ -5,7 +5,6 @@
   bottom: 0;
   left: 0;
   z-index: 20;
-  padding: 30px;
   width:  100%;
   height: 100%;
   margin: 0;
@@ -31,37 +30,60 @@
   }
   
   &-close{
-    position: absolute;
-    top: 15px;
-    right: 15px;
     border: none;
     outline: none;
     background: none;
     font-size: 24px;
     color: #747474;
     font-weight: bold;
+    margin: 0;
+    padding: 0;
     
     &:hover{
       color: var(--theme-color-shadow);
     }
   }
+
+  .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   
   &-container{
     position: relative;
     z-index: 22;
-    width: 400px;
+    width: 240px;
     top: 50%;
     transform: translateY(-50%);
     box-shadow:  0 0 10px #fff;
     margin: 0 auto;
-    padding: 20px 30px;
+    padding: 0 20px 20px 20px;
     background-color: rgb(5, 7, 22);
     border-radius: 20px;
+
+    h1 {
+      font-size: 24px;
+    }
+    h2 {
+      font-size: 18px;
+    }
+    p {
+      font-size: 14px;
+      margin: 0.6rem 0;
+    }
+    li {
+      font-size: 14px;
+      margin-bottom: 0.4rem;
+    }
+    ul {
+      padding-inline-start: 15px;
+    }
   }
 }
 
 .pagination-container {
-  margin : 1.5rem auto;
+  margin : 1.5rem 0 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,4 +97,47 @@
       align-items: center;
       width: calc(24px + 1.8rem);
   }
+}
+
+@media only screen and (min-width: 375px) {
+  .modal{        
+    &-container{
+      width: 290px;
+      padding: 20px 30px 30px 30px;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .modal{        
+    &-container{
+      width: 500px;
+
+      h1 {
+        font-size: 28px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+      p {
+        font-size: 16px;
+        margin: 0.7rem 0;
+      }
+      li {
+        font-size: 16px;
+        margin-bottom: 0.5rem;
+      }
+      ul {
+        padding-inline-start: 16px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+
 }
