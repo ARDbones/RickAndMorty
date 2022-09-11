@@ -37,19 +37,19 @@ export class DetailModalComponent implements OnInit {
     this.modalService.getCharacterId().subscribe(id =>{
       this.characterService.getCharacterDetail(id).subscribe(response =>  {
         this.character = response;
-      });
-      this.characterService.getCharacterEpisodesName(id).subscribe(response =>  {
-        this.fullEpisodesList = response.data.character.episode;
-        this.maxPages = Math.floor(this.fullEpisodesList.length / this.resultsPerPage);
-        if(this.fullEpisodesList.length % this.resultsPerPage != 0) this.maxPages++;
-  
-        if(this.page == this.maxPages) {
-          this.episodesList = this.fullEpisodesList.slice(0, this.fullEpisodesList.length); // pagina incompleta o pari alla length
-        } else {
-          this.episodesList = this.fullEpisodesList.slice(0, this.resultsPerPage); // pagina piena
-        }
-        
-        this.modalService.openModal('detail-modal');
+        this.page = 1;
+        this.characterService.getCharacterEpisodesName(id).subscribe(response =>  {
+          this.fullEpisodesList = response.data.character.episode;
+          this.maxPages = Math.floor(this.fullEpisodesList.length / this.resultsPerPage);
+          if(this.fullEpisodesList.length % this.resultsPerPage != 0) this.maxPages++;
+    
+          if(this.page == this.maxPages) {
+            this.episodesList = this.fullEpisodesList.slice(0, this.fullEpisodesList.length); // pagina incompleta o pari alla length
+          } else {
+            this.episodesList = this.fullEpisodesList.slice(0, this.resultsPerPage); // pagina piena
+          }
+          this.modalService.openModal('detail-modal');
+        });
       });
     })
   }

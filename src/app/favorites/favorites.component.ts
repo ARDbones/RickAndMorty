@@ -25,6 +25,7 @@ export class FavoritesComponent implements OnInit {
       if(this.favList.length > 0){
         this.charService.getCharactersById(this.favList.toString()).subscribe(response =>{
           this.fullCharList = response;
+          this.page = 1;
           this.maxPages = Math.floor(this.fullCharList.length / this.resultsPerPage);
           if(this.fullCharList.length % this.resultsPerPage != 0) this.maxPages++;
   
